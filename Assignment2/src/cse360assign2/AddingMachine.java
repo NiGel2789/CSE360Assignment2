@@ -11,6 +11,12 @@ public class AddingMachine {
 	private int total;
 	
 	/**
+	 * A string that tracks the calculation history, starting from the initial value
+	 * of 0.
+	 */
+	private String transHist = "0";
+	
+	/**
 	 * A method to initialize the total variable to 0.
 	 */
 	public AddingMachine () {
@@ -19,30 +25,35 @@ public class AddingMachine {
 	
 	/**
 	 * A method to return the total sum.
-	 * @return 0
+	 * @return total
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
-	 * A method that adds a value parameter to the total variable.
+	 * A method that adds a value parameter to the total variable and continues
+	 * tracking the calculation history by adding a "+ 'value'" to the string.
 	 * @param value An integer to be added to the total variable.
 	 */
 	public void add (int value) {
-		
+		total = total + value;
+		transHist = transHist + " + " + value;
 	}
 	
 	/**
-	 * A method that subtracts a value parameter from the total variable.
+	 * A method that subtracts a value parameter from the total variable and
+	 * continues tracking the calculation history by adding a "- 'value'" to
+	 * the string.
 	 * @param value An integer to be subtracted from the total variable.
 	 */
 	public void subtract (int value) {
-		
+		total = total - value;
+		transHist = transHist + " - " + value;
 	}
 	
 	public String toString () {
-		return "";
+		return transHist;
 	}
 
 	/**
